@@ -1,0 +1,22 @@
+servomotor
+
+#include <ESP32Servo.h>
+Servo servo;
+void setup()
+{
+  servo.attach(15);
+  servo.write(0);
+  delay(2000);
+}
+  void loop()
+  {
+    servo.write(100);
+    delay(1000);
+    servo.write(0);
+    delay(1000);
+  }
+
+
+servo.attach is fro asiigning the similar to that of pinmode
+servp.write is to make  it to retun for its original position 0
+red=5v  yellow=data pin  brown= gnd

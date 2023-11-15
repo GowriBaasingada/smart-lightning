@@ -1,0 +1,24 @@
+const int BUTTON_PIN=21;
+const int LED_PIN=42;
+int buttonState=0;
+int previousState=0;
+void setup()
+{
+  pinMode(BUTTON_PIN,INPUT_PULLUP);
+  pinMode(LED_PIN,OUTPUT);
+}
+void loop()
+{
+  buttonState=digitalRead(BUTTON_PIN);
+  if(buttonState==LOW && previousState==HIGH)
+  {
+    digitalWrite(LED_PIN,!digitalRead(LED_PIN));
+  }
+  previousState=buttonState;
+}
+  
+
+
+
+dhtv11 temperaturea and humidity
+capacituve humidity sensor 

@@ -1,0 +1,24 @@
+thingspeak=allows us to interact with internet available devices
+its an cloud based iot platforms
+
+visualisations= represen
+
+
+wifi server port number is 80
+
+const int LDR_PIN = 34; // Define the pin connected to the LDR
+const int LED_PIN = 12; // Define the pin connected to the LED
+void setup() {
+pinMode(LDR_PIN, INPUT);
+pinMode(LED_PIN, OUTPUT);
+}
+void loop() {
+int sensorValue = analogRead(LDR_PIN); // Read the LDR value (0-4095)
+int brightness = map(sensorValue, 0, 4095, 0, 255); // Map to LED brightness
+
+analogWrite(LED_PIN, brightness); // Set LED brightness
+delay(100); // Add a small delay for stability
+}
+here in the above example 
+4095 and 255 is just a random numbers whcich are used to declare the highest and lowest intensity of led bulb depending upon the suns radiation 
+and these numbeers may vary according to the sun intensity of light or any other intensity of light source as it works on light dependent resistance its LDR

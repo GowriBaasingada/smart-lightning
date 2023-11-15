@@ -1,0 +1,128 @@
+header file
+main=serves as starting point for program execution   () used to declare and execution of the program
+variable declaration
+body
+return=terminates the execution of the function and return control to the calling function
+
+task= application of iot
+smart mirror =voice control, temperature,messages interact lively while getting ready
+esp32s2= has only wifi module a silver ceramic strructure and acts as an active model
+
+serial begin=speed of transmission of data  baud rate
+serail.println=prints the output for next line , if not then it keeps printing in the same line
+
+
+void setup()
+{
+  pinMode(42,OUTPUT);
+  pinMode(6,OUTPUT);
+}
+  void loop()
+  {
+    digitalWrite(42,HIGH);
+    digitalWrite(6,HIGH);
+    delay(5000);
+    digitalWrite(42,LOW);
+    digitalWrite(6,LOW);
+    delay(5000);
+  }
+   own board kit
+
+const int trigPin=14;
+const int echoPin=13;
+const int ledPin=4;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(trigPin,OUTPUT);
+  pinMode(echoPin,INPUT);
+  pinMode(ledPin,OUTPUT);
+}
+void loop()
+{
+  digitalWrite(trigPin,LOw);
+  delayMicroseconds(2);
+  digitalWrite(trigPin,HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin,LOw);
+  long duration=pulseIn(echoPin,HIGH);
+  float distance_cm=duration/58.0;
+  Serial.print(:Distance:");
+  serial.print(distance_cm);
+  Serial.println("cm");
+  if (distance_cm>120)
+  {
+    digitalWrite(ledPin,HIGH);
+  }
+  else{
+    digitalWrite(ledPin,LOW);
+  }
+  delay(500);
+}
+
+const int trigPin=14;
+const int echoPin=13;
+const int ledPin=4;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(trigPin,OUTPUT);
+  pinMode(echoPin,INPUT);
+  pinMode(ledPin,OUTPUT);
+}
+void loop()
+{
+  digitalWrite(trigPin,LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin,HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin,LOW);
+  long duration=pulseIn(echoPin,HIGH);
+  float distance_cm=duration/58.0;
+  Serial.print("Distance:");
+  Serial.print(distance_cm);
+  Serial.println("cm");
+  if (distance_cm>120)
+  {
+    digitalWrite(ledPin,HIGH);
+  }
+  else{
+    digitalWrite(ledPin,LOW);
+  }
+  delay(500);
+}assignment
+
+
+The pinMode() function is used to configure a specific pin to behave either as an input or an output.
+The programming language C is ideal for low-level cus- tom programming of serial interfaces, which can be used for the timing and stimulus-response signaling needed for real-time experiments.
+
+
+potentiometer=10kwattsvcc ground 
+vcc=vcc gnd=gnd 
+black colour=5v    white color=gnd     red color=A0  (bottom ranger)
+fan regulatpr kind of experiment  potentiometer
+
+
+int ledPin=16;
+int buttonPin=14;
+
+void setup()
+{
+  pinMode(ledPin,OUTPUT);
+  pinMode(buttonPin,INPUT_PULLUP);
+}
+
+void loop()
+{
+  int digitalVal=digitalRead(buttonPin);
+  
+  if (HIGH==digitalVal)
+  {
+  digitalWrite(ledPin,LOW);
+  }
+  else
+  {
+    digitalWrite(ledPin,HIGH);
+  }
+}
+bread board push  button

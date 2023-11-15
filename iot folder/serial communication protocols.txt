@@ -1,0 +1,138 @@
+serial communication protocols
+UART
+SPI
+I2C
+MODBUS
+CAN
+
+in serail communication the 8 bit data sent through single line while in arallel communication the data will be sent througgh different 8 lines
+
+UART
+it is serial communication protocol
+it uses two wire configuration
+data frame and trasmission speed configuration \
+
+synchronous                                           asynchronous
+ clock signal                                          no requirement of clock signal
+ for synhrnisingthe date                               no acknowledgement
+
+
+configuration of UART
+       should be connected in such a way that transmitter of device 1 should be connected to reiever of the device 2 and vice vrsa and both the grounds should be conneceted 
+
+
+
+data synchronisation
+1) baud rate(speeed of transmission of a data)(express in terms of bits per second)=shoulld be same on the both the device
+2) data frame  (arranges the data in 2D both in rows and coloumns)
+     start D0 D1 D2 D3 D4 D5 D6 D7 PB stop
+          PB=parity bit which send the one extra bit to check the error
+
+
+UART can be classified in 3 configurations and they are 
+simplex = one wire communication
+half duplex= Tx and Rx data not transmitted  at the same time   (ex=walky talky)
+full duplex= Tx and Rx data are transmitted at the same time
+
+advantages :-
+1) only use two wires
+2) no clock signal is necesssary 
+3) provide error detection by parity bit
+4) cost and size will be much lesses compaired
+5) to parallel combination
+
+disadvantages:-
+1) limited speed 
+2) doesnt supprt multi master slave system
+
+#include<DHT.h>
+#define DHTPIN 13
+# define DHTTYPE DHT11
+DHT dht(DHTPIN,DHTTYPE);
+void setup()
+{
+  Serial.begin(9600);
+  dht.begin();
+}
+void loop ()
+{
+  delay(2000);
+  float humidity=dht.readHumidity();
+  float temperature =dht.readTemperature();
+  if (isnan(humidity) || isnan(temperature)) //non an number 
+  {
+    Serial.println("failed to read from DHT sensor!");
+    return;
+  }
+  Serial.print("temperature :");
+  Serial.print(temperature);
+  Serial.println(" *C ");
+
+  Serial.print("Humidity:");
+  Serial.print(humidity);
+  Serial.println("%");
+
+  Serial.println();
+  delay(2000);
+
+}
+humidity n temp
+
+
+
+void setup()
+{
+  Serial.begin(115200);
+}
+void loop()
+{
+  Serial.println("hello, UART!");
+  delay(1000);
+}
+serial communication hello UART
+
+
+
+const int LDR_PIN=34;
+const int LED_PIN=  12;
+
+int ldrThreshold=500;
+
+void setup()
+{
+  pinMode(LDR_PIN,INPUT);
+  pinMode(LED_PIN,OUTPUT);
+  Serial.begin(115200);
+
+}
+
+void loop()
+{
+  int ldrValue=analogRead(LDR_PIN);
+  Serial.print("LDR Value:");
+  Serial.println(ldrValue);
+
+  if(ldrValue < ldrThreshold)
+  {
+    digitalWrite(LED_PIN,HIGH);
+    Serial.println("LED ON");
+  }
+  else
+  {
+    digitalWrite(LED_PIN,LOW);
+    Serial.println("LED OFF");
+  }
+  delay(1000);
+}
+
+  program for UART in wokwi 
+it programs in such a way that f the lux is greater than 500 then led will be turned off and if lux is less that 500 then led will glow on 
+check the values which is getting printed in the output sesssion and alter the value of ldr and check when the light turns on and when the light turns off
+
+
+
+
+
+
+
+

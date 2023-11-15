@@ -1,0 +1,55 @@
+SPI protocol
+serial phaeripheral interface
+
+four wire communicaation but in UART we make use of 2 wires 
+synchronous type communication
+single master, multi slave configuration
+SPI is full duplex communication technology 
+protocols= set of instructions
+its used for short range communication
+
+
+in master we have                                               in slave we have
+ serial clock(SCLK)                                             serial clock(SCLK)
+master output and slave input(MOSI)                            MOSI
+master input slave output(MISO)                                MISO
+slave selecting (SS)                                            SS
+
+
+in case of 2 slaves   ss should be selected to grnd pin
+if slave 1 ss is grounded then slave 1 is selected and vice versa
+GPIO=seneral purpose input output pin
+
+
+timing diagram 
+if the readimgs of master data is unknown then slave will send N number of data bytes.
+
+
+parameter sof configuring SPI protocols
+> clock polarity 
+> clock phase 
+
+clock polarity (CPOL)
+
+if cpol=0 then idle state is 0 and active state is 1
+if cpol=1 then idle state is 1 ND ACTIVE STATE IS 
+
+when the data has to be toggled by Tx 
+when the data has to be sampled by Rx
+
+CPHASE=0
+data will be sampled at the leading edge of the clock (leading edge=firs edge of the pulse)(rise =  leading edge )
+
+CPHASE1= 
+data will be sampled at the trailing edge of the clock (trailing edge=second edge of the pulse) (fall= tariling edge)
+
+
+
+
+SPI models
+mode                CPOL               CPHASE                   COMMENT
+mode 0              0                   0                active state clock is "1" data sampling at leading edge
+mode 1              0                   1                active state clock is "1" data sampling at trailing edge
+mode 2              1                   0                active state clock is "0" data sampling at leading edge
+mode 3              1                   1                active state clock is "0" data sampling at trailing edge
+

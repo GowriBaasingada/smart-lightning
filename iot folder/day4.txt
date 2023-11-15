@@ -1,0 +1,107 @@
+A smart mirror, also known as a "magic mirror," is an interactive device powered by artificial intelligence that displays digital information such as weather updates, news, social media feeds, and calendar reminders alongside the reflection of the us
+
+toggle state= light keeps glowing when the push button is switch is pressed for once and offs when button is pressed
+const int BUTTON_PIN=21;
+const int LED_PIN=42;
+int buttonState=0;
+int previousState=0;
+void setup()
+{
+  pinMode(BUTTON_PIN,INPUT_PULLUP);
+  pinMode(LED_PIN,OUTPUT);
+}
+void loop()
+{
+  buttonState=digitalRead(BUTTON_PIN);
+  if(buttonState==LOW && previousState==HIGH)
+  {
+    digitalWrite(LED_PIN,!digitalRead(LED_PIN));
+  }
+  previousState=buttonState;
+}
+  activity= once pressed on again pressed off
+pushbutton ====gnd n d21
+led==== gnd n d42
+
+
+
+#include <WiFi.h>
+const char* ssid="Area_51";
+const char* password="justin24";
+void setup()
+{
+  Serial.begin(115200);
+  WiFi.begin(ssid,password);
+  while(WiFi.status()!=WL_CONNECTED)
+  {
+    delay(1000);
+    Serial.println("connecting to WiFi...");
+    }
+    
+    Serial.println("Connected to WiFi");
+    }
+    void loop()
+{
+}
+
+
+
+
+#include<WiFi.h>
+const char* apSSID="Area_51";
+const char* apPassword="justin24";
+void setup()
+{
+  Serial.begin(115200);
+  WiFi.softAP(apSSID,apPassword);
+  Serial.println("Acess point started");
+  Serial.print("IP adress:");
+  Serial.println(WiFi.softAPIP());
+}
+void loop()
+{
+}
+
+ lcd display 16 oloumns and 2 rows
+
+
+
+
+gartner 
+the first thing happeneds in software is requirement gathering process
+busnessrequiremnet >>> IT requiremnet
+
+capture of requiremnt== individual technique and group requiremnt technique
+
+function and non 
+implicit and explicit
+
+
+customer>>>needs==requiremnets
+
+IT requiremnet sare called backlogs there comes to product owner
+sprint=short duration of work
+in agile the requirements are there in he form of use case
+USE CASE =SEQUENCE
+main flow and alternate flow=ex of ATM 
+
+
+
+GIT
+
+
+
+software is about 5 opearations CRUDL where C=create R=read U=update  D=delete             L=list(search ) in case of so many people with similar people
+online/batch(group)
+
+development environment>>>>>system integration (functional system requiremnet)
+developers will always perform the unit test
+
+
+
+LES/S=less endurance           security    UAT=user acceptance test
+
+deefect =P1,P2<P3,P4 p=priority
+
+extreeme programming in agile= where 2 or 3 developpers are sitting behimd and their duty is to handle the all the steps
+

@@ -1,0 +1,36 @@
+#include <LiquidCrystal.h>
+const int rs=13;
+const int en=14;
+const int d4=19;
+const int d5=18;
+const int d6=21;
+const int d7=22;
+LiquidCrystal lcd(rs,en,d4,d5,d6,d7);
+byte heart[8]={
+  B00000,
+  B01010,
+  B11111,
+  B11111,
+  B11111,
+  B01110,
+  B00100,
+  B00000
+};
+void setup()
+{
+  lcd.begin(16,2);
+  lcd.createChar(0,heart);
+  lcd.clear();
+}
+void loop()
+{
+  lcd.setCursor(0,0);
+  lcd.write((byte)0);
+  lcd.setCursor(5,0);
+  lcd.write((byte)0);
+  lcd.setCursor(10,0);
+  lcd.write((byte)0);
+  delay(1000);
+  lcd.clear();
+  delay(1000);
+}
